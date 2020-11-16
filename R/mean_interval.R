@@ -1,7 +1,7 @@
-#' Statistik uji hipotesis dan penduga selang
+#' Pendugaan selang rata-rata satu populasi
 #'
-#' Fungsi digunakan untuk menghitung berbagai penduga interval maupun uji
-#' hipotesis secara ciamik menggunakan plot agar lebih mudah dipahami.
+#' Fungsi digunakan untuk menghitung berbagai penduga interval rata-rata dari populasi.
+#'
 #'
 #' @param alp Taraf signifikansi
 #' @param vek Data sampel numeric

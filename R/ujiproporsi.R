@@ -1,11 +1,12 @@
-#' Statistik uji hipotesis dan penduga selang
+#' Pengujian hipotesis perbandingan dua proporsi
 #'
-#' Fungsi digunakan untuk menghitung berbagai penduga interval maupun uji
-#' hipotesis secara ciamik menggunakan plot agar lebih mudah dipahami.
+#' Fungsi digunakan untuk menentukan keputusan dari suatu hipotesis.
+#' Dalam fungsi ini digunakan beberapa parameter yang diperlukan dalam perbandingan
+#' dua proporsi.
 #'
 #' @param p0 Nilai selisih proporsi dua sampel
 #' @param alp Taraf signifikansi
-#' @param h1 Jenis uji: two.sided ; right.sided ; left.sided
+#' @param h1 Jenis uji: two.sided -default- ; right.sided ; left.sided
 #' @param x1 Banyak karakteristik pada sampel pertama
 #' @param n1 Banyak sampel pertama
 #' @param x2 Banyak karakteristik pada sampel kedua
@@ -13,7 +14,7 @@
 #' @return Plot uji proporsi dengan
 
 #' @export
-proportion_test<- function(p0 = 0, alp = 0.05, h1 = "two.sided [default]; right.sided; left.sided", x1 = NA, n1 = NA, x2 = NA, n2 = NA){
+proportion_test<- function(p0 = 0, alp = 0.05, h1 = "\"two.sided\", \"right.sided\", \"left.sided\"", x1 = NA, n1 = NA, x2 = NA, n2 = NA){
   p1 <- x1/n1
   p2 <- x2/n2
   if (p0 == 0){
@@ -42,8 +43,8 @@ proportion_test<- function(p0 = 0, alp = 0.05, h1 = "two.sided [default]; right.
   } else {
     plo <- zplot + ggplot2::geom_segment(ggplot2::aes(x = qnorm(alp/2), y = 0 ,
                                              yend = 0, xend = -5),color = "#6CCBDB", size = 3, alpha = 0.8) +
-      ggplot2::geom_text(aes(x = qnorm(alp/2), y = -0.01, label = round(qnorm(alp/2),4))) +
-      ggplot2::geom_point(aes(x = qnorm(alp/2), y = 0))
+      ggplot2::geom_text(ggplot2::aes(x = qnorm(alp/2), y = -0.01, label = round(qnorm(alp/2),4))) +
+      ggplot2::geom_point(ggplot2::aes(x = qnorm(alp/2), y = 0))
     plot.z <- plo + ggplot2::geom_segment(ggplot2::aes(x = qnorm(alp/2, lower.tail = F), y = 0 ,
                                               yend = 0, xend = 5),color = "#6CCBDB", size = 3, alpha = 0.8) +
       ggplot2::geom_text(ggplot2::aes(x = qnorm(alp/2, lower.tail = F), y = -0.01, label = round(qnorm(alp/2, lower.tail = F),4))) +
