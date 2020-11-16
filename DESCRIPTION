@@ -1,0 +1,18 @@
+  
+Package: statuji
+Title: Statistik: Penduga Interval dan Uji Hipotesis
+Version: 0.0.1
+Authors@R: 
+    person(given = "your",
+           family = "sunshine",
+           role = c("aut", "cre"),
+           email = "jangandisebarkeoranglainya@gmail.com")
+Description: Digunakan untuk menghitung berbagai statistik mengenai penduga interval dan uji hipotesis menggunakan plot dari paket ggplot2 agar memudahkan dalam pembacaan. \n visit this link: https://tiny.cc/hahMETSTATv2
+License: use_ccby_license()
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+URL: https://github.com/yoursunshineR/statitest
+Imports:
+    ggplot2 
