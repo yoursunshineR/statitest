@@ -6,7 +6,7 @@
 #' @param alp Taraf signifikansi
 #' @param vek Data sampel numeric
 #' @param sig Nilai standar deviasi dari populasi
-#' @return Plot penduga interval menggunakan plot
+#' @return Plot penduga interval menggunakan ggplot2 dari tidyverse
 
 #' @export
 interval.rata <- function(alp = 0.05, vek = c(10,10,10,10,10,10,10), sig = NA){
@@ -19,7 +19,7 @@ interval.rata <- function(alp = 0.05, vek = c(10,10,10,10,10,10,10), sig = NA){
     lci <- xbar - moe
     uci <- xbar + moe
 
-    tplot <- ggplot2::ggplot() +  ggplot2::xlim(-5,5) + ggplot2::ggtitle("Z-test")
+    tplot <- ggplot2::ggplot() +  ggplot2::xlim(-5,5) + ggplot2::ggtitle("T-test")
     tplot2 <- tplot +  ggplot2::geom_function(fun = dt, args = list(df = v), colour = "red")
 
     tplot2 + ggplot2::geom_segment(ggplot2::aes(x = qt(alp/2, v), y = 0 ,
@@ -40,7 +40,7 @@ interval.rata <- function(alp = 0.05, vek = c(10,10,10,10,10,10,10), sig = NA){
     lci <- xbar - moe
     uci <- xbar + moe
 
-    zplot <- ggplot2::ggplot() +  ggplot2::xlim(-5,5) + ggplot2::ggtitle("T-test")
+    zplot <- ggplot2::ggplot() +  ggplot2::xlim(-5,5) + ggplot2::ggtitle("Z-test")
     zplot2 <- zplot +  ggplot2::geom_function(fun = dnorm, colour = "red")
 
     zplot2 + ggplot2::geom_segment(ggplot2::aes(x = qnorm(alp/2), y = 0 ,
