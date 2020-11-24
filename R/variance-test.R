@@ -19,7 +19,7 @@ variance.test <- function( varsampel = c(NA,NA), nsampel = c(NA,NA),
   if (!is.na(varpop0) & is.na(varsampel[2]) & is.na(nsampel[2])) {
     khi <- (nsampel[1]-1)*varsampel[1]/varpop0
     v <- nsampel[1] - 1
-    p.val <- pchisq(khi, df = v)
+    p.val <- pchisq(khi, df = v, lower.tail = F)
 
     cat("\n\n                     Chi-square One Variance Test by yoursunshine \n",
         "\n\n",
