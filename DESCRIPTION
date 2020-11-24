@@ -7,7 +7,7 @@ Authors@R:
            family = "sunshine",
            role = c("aut", "cre"),
            email = "jangandisebarkeoranglainya@gmail.com")
-Description: Digunakan untuk menghitung berbagai statistik mengenai penduga interval dan uji hipotesis. visit these link: https://tiny.cc/hahMETSTATv2
+Description: Digunakan untuk menghitung berbagai statistik mengenai penduga interval dan uji hipotesis. visit these link: https://github.com/yoursunshineR/statitest and https://tiny.cc/hahMETSTATv2
 License: use_ccby_license()
 Encoding: UTF-8
 LazyData: true
