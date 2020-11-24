@@ -14,7 +14,7 @@
 #' @return Plot uji proporsi menggunakan ggplot2
 
 #' @export
-proportion_test<- function(p0 = 0, alp = 0.05, h1 = "two.sided", x1 = NA, n1 = NA, x2 = NA, n2 = NA){
+proportion.test<- function(p0 = 0, alp = 0.05, h1 = "two.sided", x1 = NA, n1 = NA, x2 = NA, n2 = NA){
   p1 <- x1/n1
   p2 <- x2/n2
   if (p0 == 0){

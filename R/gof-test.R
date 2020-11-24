@@ -3,11 +3,11 @@
 #' Fungsi digunakan untuk menentukan apakah suatu data observasi memiliki
 #' kecocokan dengan suatu distribusi.
 #'
-#' @param kiri.first Batas bawah kelompok pertama
-#' @param kiri.last Batas bawah kelompok terakhir
-#' @param kanan.first Batas atas kelompok pertama
-#' @param kanan.last Batas atas kelompok terakhir
-#' @param k Banyak kelompok kelas
+#' @param kiri.first Batas bawah kelompok pertama (bukan tepi)
+#' @param kiri.last Batas bawah kelompok terakhir (bukan tepi)
+#' @param kanan.first Batas atas kelompok pertama (bukan tepi)
+#' @param kanan.last Batas atas kelompok terakhir (bukan tepi)
+#' @param j Jarak antar interval. misal: (140-144) (144-145), maka j = 5
 #' @param f.obs Frekuensi observasi per kelas
 #' @param var Varians populasi
 #' @param miu Rata-rata populasi
@@ -19,10 +19,10 @@
 
 
 
-gof.test <- function(kiri.first, kiri.last, kanan.first, kanan.last, k, f.obs, var, miu, par, alp) {
+gof.test <- function(kiri.first, kiri.last, kanan.first, kanan.last, j, f.obs, var, miu, par, alp) {
   # Generate kelompok interval
-  b.bawah <- c(seq(kiri.first, kiri.last, k))
-  b.atas <- c(seq(kanan.first, kanan.last, k))
+  b.bawah <- c(seq(kiri.first, kiri.last, j))
+  b.atas <- c(seq(kanan.first, kanan.last, j))
 
 
   # Generate Z-value
@@ -55,12 +55,12 @@ gof.test <- function(kiri.first, kiri.last, kanan.first, kanan.last, k, f.obs, v
   khi.dat <- temp/ei
   khi <- sum(khi.dat)
 
-  khi.tabel <- qchisq(alp, df = k - 1 - par, lower.tail = F)
+  khi.tabel <- qchisq(alp, df = j - 1 - par, lower.tail = F)
 
   cat("\n                 Goodness of Fit Test by yoursunshine \n \n")
   cat(paste("Khisq-hitung:  ", round(khi,4)))
   cat(paste("\nKhisq-tabel :  ", round(khi.tabel,4)))
-  cat(paste("\nDf :  ", k - 1 - par))
+  cat(paste("\nDf :  ", j - 1 - par))
   cat(paste("\nAlpha :  ", alp))
   if (khi < khi.tabel) {
     cat(paste("\n\n\nKhisq-hitung < Khisq-tabel"))
@@ -73,6 +73,6 @@ gof.test <- function(kiri.first, kiri.last, kanan.first, kanan.last, k, f.obs, v
   }
   cat("\n \n-----------------------  Hasil Perhitungan  ------------------------ \n \n")
 
-  df <- data.frame("Batas-Bawah" = b.bawah, "Batas-Atas" = b.atas, "Frek-Observ" = f.obs, "Peluang-Z" = round(p,4), "Frek-Harap" = round(ei,4), "Khisq" = round(khi.dat,4))
+  df <- data.frame("Batas-Bawah" = b.bawah, "Batas-Atas" = b.atas, "Z-bawah" = z.bawah, "Z-atas" = z.atas, "Frek-Observ" = f.obs, "Peluang-Z" = round(p,4), "Frek-Harap" = round(ei,4), "Khisq" = round(khi.dat,4))
   df
 }

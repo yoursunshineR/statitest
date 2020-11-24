@@ -9,7 +9,7 @@
 #' @return Plot penduga interval menggunakan ggplot2 dari tidyverse
 
 #' @export
-interval.rata <- function(alp = 0.05, vek = c(10,10,10,10,10,10,10), sig = NA){
+interval.mean <- function(alp = 0.05, vek = c(10,10,10,10,10,10,10), sig = NA){
   n <- length(vek)
   xbar <- mean(vek)
   if (n < 30 & is.na(sig)== TRUE){
