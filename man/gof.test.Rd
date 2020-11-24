@@ -9,7 +9,7 @@ gof.test(
   kiri.last,
   kanan.first,
   kanan.last,
-  k,
+  j,
   f.obs,
   var,
   miu,
@@ -18,15 +18,15 @@ gof.test(
 )
 }
 \arguments{
-\item{kiri.first}{Batas bawah kelompok pertama}
+\item{kiri.first}{Batas bawah kelompok pertama (bukan tepi)}
 
-\item{kiri.last}{Batas bawah kelompok terakhir}
+\item{kiri.last}{Batas bawah kelompok terakhir (bukan tepi)}
 
-\item{kanan.first}{Batas atas kelompok pertama}
+\item{kanan.first}{Batas atas kelompok pertama (bukan tepi)}
 
-\item{kanan.last}{Batas atas kelompok terakhir}
+\item{kanan.last}{Batas atas kelompok terakhir (bukan tepi)}
 
-\item{k}{Banyak kelompok kelas}
+\item{j}{Jarak antar interval. misal: (140-144) (144-145), maka j = 5}
 
 \item{f.obs}{Frekuensi observasi per kelas}
 
